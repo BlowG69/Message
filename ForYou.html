@@ -1,0 +1,114 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/office/16/null/hearts.png">
+    <title>Janine</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+    * {
+        font-family: 'Open Sans', sans-serif;
+        font-style: italic;
+    }
+    html, body{
+        margin: 0px;
+        padding: 0px;
+    }
+    .main {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: url(./pic/bg.gif);
+        background-position: center;
+    }
+    #txt {
+        font-size: 35px;
+        text-align: center;
+        font-style: normal;
+    }
+    .message {
+        width: 40vw;
+        text-align: center;
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    #greet {
+        font-size: 13px;
+        font-style: normal;
+    }
+  .main {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 4s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+</style>
+<body onload="startTime()">
+    <div class="main">
+        <div class="warp">
+            <div id="txt"></div>
+            <br>
+            <div class="message">
+                <div id="greet"></div>
+                <div id="content"></div>
+            </div>
+            
+        </div>
+    </div>
+        
+ 
+
+
+<script>
+function startTime() {
+  var greetings = "";
+  var morningMessage = "Hi love! if ever na galit ka sana balikan mo tong gawa na to para malessen kahit konti kahit ano mangyare mahal na mahal kita,kahit lagi mo ko inaaway hays,sana wag ka na mag duda sakin kasi ikaw lang legit tinaga na kita sa bato, sana piliin mo paren ako sa araw araw kahit sa times na galit ka and sana di ka na magalit or mag tampo sa mga bagay bagay I love you palagi!.";
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+  if (h > 23 && h < 12) {
+    greetings = "Good morning, Love! <3";
+  } else if (h >11 && h < 5) {
+    greetings = "Good afternoon, Love! <3";
+  } else if ( h > 5 && h < 24) {
+    greetings = "Good evening, Love! <3";
+  }
+  if (h > 6) {
+    document.getElementById('greet').innerHTML = greetings;
+    document.getElementById('content').innerHTML = morningMessage;
+  }
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+
+</script>
+
+</body>
+</html>
